@@ -12,6 +12,9 @@ namespace Kakera
         [SerializeField]
         private Image imageRenderer;
 
+        public Image outImagePreview;
+        public GameObject panelPreview;
+
         void Awake()
         {
             imagePicker.Completed += (string path) =>
@@ -45,7 +48,9 @@ namespace Kakera
             {
                 PlayerPrefs.SetString("imagePath-" + Login.debugUser.id, path);
             }
-            output.transform.eulerAngles = new Vector3(0, 0, -90);
+            panelPreview.SetActive(true);
+            output.transform.eulerAngles = Vector3.zero;
+            outImagePreview.sprite = Sprite.Create((Texture2D)texture, new Rect(0, 0, texture.width, texture.height), Vector3.one / 2);
             output.sprite = Sprite.Create((Texture2D)texture, new Rect(0, 0, texture.width, texture.height), Vector3.one / 2);
             Login.UpdateGUI();
         }

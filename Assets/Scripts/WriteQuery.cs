@@ -26,7 +26,17 @@ public class WriteQuery : MonoBehaviour {
 
     public void BTN_Enviar()
     {
-        GameManager.instance.SendContactoUNITY(nombre.text,correo.text, tema.text, message.text);
+        if(message.text == "")
+        {
+            PanelResult.ShowMsg("EL Campo 'mensaje' esta vacio!");
+        }else if (tema.text == "")
+        {
+            PanelResult.ShowMsg("EL Campo 'tema' esta vacio!");
+        }
+        else
+        {
+            GameManager.instance.SendContactoUNITY(nombre.text,correo.text, tema.text, message.text);
+        }
     }
 
     public IEnumerator SendContact(string nombre,string correo,string tema,string message)

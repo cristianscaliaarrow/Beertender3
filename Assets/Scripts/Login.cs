@@ -213,8 +213,8 @@ public class Login : MonoBehaviour {
         {
             Debug.Log("POKE SE CARGO LA IMAGEN!");
         }
-
-        output.transform.eulerAngles = new Vector3(0, 0, -90);
+        
+        output.transform.eulerAngles = new Vector3(0, 0, PlayerPrefs.GetFloat("rotate"));
         output.sprite = Sprite.Create((Texture2D)texture, new Rect(0, 0, texture.width, texture.height), Vector3.one / 2);
     }
 
